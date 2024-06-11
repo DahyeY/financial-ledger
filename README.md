@@ -22,10 +22,10 @@
 	"description": "블라블라",
 	"amount": 1000,
 	"createAt": "2023-01-11T05:01:39.258Z",
-  "fundsAtTheTime": 100000, // 시점 잔액
+  	"fundsAtTheTime": 100000, // 시점 잔액
 }[]
 ```
-
+ 
 ### 데이터 관리
 
 > 원본데이터는 브라우저 storage에서 관리
