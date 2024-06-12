@@ -41,19 +41,23 @@ export function renderHistoryList() {
       const detail = store.detailList[dateId];
       if (!detail?.length) return "";
 
+
+
       return `<article class="history-per-day">
       <p class="history-date">2021년 12월 1일</p>
-      <section class="history-item">
+      ${detail
+          .map(({ description, category, amount, fundsAtTheTime, createAt }) => {
+            return `<section class="history-item">
         <section class="history-item-column">
-          <div class="create-at">10:30</div>
+          <div class="create-at">${createAt}</div>
           <div class="history-detail">
             <div class="history-detail-row history-detail-title">
-              <p>아이스 아메리카노</p>
+              <p>${description}</p>
             </div>
             <div class="history-detail-row history-detail-subtitle">
-              <p>카페</p>
+              <p>${category}</p>
               <p>
-                1000000
+                ${amount}
                 <span>원</span>
               </p>
             </div>
@@ -65,11 +69,14 @@ export function renderHistoryList() {
         <section class="history-item-caption">
           <p>
             <span>남은 자산</span>
-            <span>300000</span>
+            <span>${fundsAtTheTime}</span>
             <span>원</span>
           </p>
         </section>
-      </section>
+      </section>`;
+          })
+          .join("")}
+
     </article>`;
     })
     .join("");
